@@ -1,4 +1,4 @@
-package org.wso2.as.ee.sample6;
+package org.wso2.as.ee.sample5;
 
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
