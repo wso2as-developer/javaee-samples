@@ -12,9 +12,17 @@
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>6.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <modules>
-        <module>CDI_Servlet</module>
+        <module>CDI-Servlet/cdi-alternative</module>
+        <module>CDI-Servlet/cdi-inject</module>
+        <module>CDI-Servlet/cdi-scope</module>
+        <module>CDI-Servlet/cdi-decorator</module>
+        <module>CDI-Servlet/cdi-inteceptor</module>
+        <module>CDI-Servlet/cdi-produces</module>
+        <module>CDI-Servlet/cdi-qualifier</module>
+        <module>CDI-Servlet/cdi-event</module>
     </modules>
 </project>
