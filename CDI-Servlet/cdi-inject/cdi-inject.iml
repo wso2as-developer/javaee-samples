@@ -11,9 +11,6 @@
         </webroots>
       </configuration>
     </facet>
-    <facet type="WebBeans" name="CDI">
-      <configuration />
-    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -26,7 +23,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:6.0" level="project" />
+    <orderEntry type="library" name="Maven: javax:javaee-api:6.0" level="project" />
   </component>
 </module>
 

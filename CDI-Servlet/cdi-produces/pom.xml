@@ -4,13 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.as.ee.sample.cdi.servlet</groupId>
-    <artifactId>sample4</artifactId>
+    <artifactId>cdi-produces</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
     <parent>
         <groupId>AS_EE_Samples</groupId>
         <artifactId>AS_EE_Samples</artifactId>
         <version>1.0</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
 
