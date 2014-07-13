@@ -24,5 +24,7 @@
         <module>CDI-Servlet/cdi-produces</module>
         <module>CDI-Servlet/cdi-qualifier</module>
 <!--        <module>CDI-Servlet/cdi-event</module> -->
+
+        <module>JPA-Servlet/jpa-order-processor</module>
     </modules>
 </project>
