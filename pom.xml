@@ -20,9 +20,9 @@
         <module>CDI-Servlet/cdi-inject</module>
         <module>CDI-Servlet/cdi-scope</module>
         <module>CDI-Servlet/cdi-decorator</module>
-        <module>CDI-Servlet/cdi-inteceptor</module>
+        <module>CDI-Servlet/cdi-interceptor</module>
         <module>CDI-Servlet/cdi-produces</module>
         <module>CDI-Servlet/cdi-qualifier</module>
-        <module>CDI-Servlet/cdi-event</module>
+<!--        <module>CDI-Servlet/cdi-event</module> -->
     </modules>
 </project>
