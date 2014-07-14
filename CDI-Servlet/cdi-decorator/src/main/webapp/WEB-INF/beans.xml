@@ -4,7 +4,7 @@ http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
 
     <decorators>
-        <class>org.wso2.as.ee.sample5.GreeterDecorator</class>
+        <class>org.wso2.as.ee.sample6.GreeterDecorator</class>
     </decorators>
 
 </beans>
