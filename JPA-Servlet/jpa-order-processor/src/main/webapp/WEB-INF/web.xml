@@ -5,12 +5,4 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
     <display-name>JPA-Servlet Sample</display-name>
-    <context-param>
-        <param-name>db.url</param-name>
-        <param-value>jdbc:h2:~/as/test</param-value>
-    </context-param>
-    <listener>
-        <listener-class>org.h2.server.web.DbStarter</listener-class>
-    </listener>
-
 </web-app>

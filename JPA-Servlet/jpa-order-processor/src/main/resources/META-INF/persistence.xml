@@ -4,7 +4,7 @@
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
         <class>org.wso2.as.ee.Order</class>
         <properties>
-            <property name="openjpa.ConnectionURL" value="jdbc:h2:~/test"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>
             <property name="openjpa.ConnectionDriverName" value="org.h2.Driver"/>
             <property name="openjpa.ConnectionUserName" value="sa"/>
             <property name="openjpa.ConnectionPassword" value="sa"/>
