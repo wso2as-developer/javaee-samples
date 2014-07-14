@@ -6,6 +6,11 @@
     <title>JPA-Servlet example</title>
 </head>
 <body>
+
+<div>
+    <b style="color: red;"> ${info} </b>
+</div>
+
 <h1>List of orders</h1>
 
 <table>
@@ -38,5 +43,12 @@
 <form action="order" method="get">
     <input type="submit" value="Place another order" name="anotherOrder"/>
 </form>
+
+<h1>Order removal</h1>
+<form action="order" method="post">
+    Order id: <input type="text" name="orderId" />
+    <input type="submit" value="Remove order" name="removeOrder" />
+</form>
+
 </body>
 </html>

@@ -25,18 +25,35 @@ public class OrderManagerServlet extends HttpServlet {
             int quantity = Integer.parseInt(request.getParameter("quantity"));
 
             orderManager.addOrder(item, quantity);
-            request.setAttribute("orders", orderManager.getOrders());
-            request.getRequestDispatcher("/WEB-INF/orderList.jsp").forward(request, response);
+            displayOrderList(request, response);
         } else if (request.getParameter("viewOrder") != null) {
             request.setAttribute("orders", orderManager.getOrders());
             request.getRequestDispatcher("/WEB-INF/orderList.jsp").forward(request, response);
+        } else if (request.getParameter("removeOrder") != null) {
+            int orderId = Integer.parseInt(request.getParameter("orderId"));
+            Order orderToBeRemoved = orderManager.findOrder(orderId);
+
+            if (orderToBeRemoved != null) {
+                orderManager.deleteOrder(orderToBeRemoved);
+                request.setAttribute("info", "Order with the id " + orderId + " deleted");
+            } else {
+                request.setAttribute("info", "Order id not found");
+            }
+            displayOrderList(request, response);
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getParameter("anotherOrder") != null) {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
+
+    }
+
+    private void displayOrderList(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        request.setAttribute("orders", orderManager.getOrders());
+        request.getRequestDispatcher("/WEB-INF/orderList.jsp").forward(request, response);
     }
 
     public void destroy() {

@@ -30,6 +30,16 @@ public class OrderManager {
         return results;
     }
 
+    public void deleteOrder(Order order) {
+        entityTransaction.begin();
+        entityManager.remove(order);
+        entityTransaction.commit();
+    }
+
+    public Order findOrder(int id) {
+        return entityManager.find(Order.class, id);
+    }
+
     public void closeConnections() {
         entityManager.close();
         entityManagerFactory.close();
