@@ -17,9 +17,7 @@ public class OrderManager {
 
     public void addOrder(String item, int quantity) {
         entityTransaction.begin();
-        Order order = new Order();
-        order.setItem(item);
-        order.setQuantity(quantity);
+        Order order = new Order(item, quantity);
         entityManager.persist(order);
         entityTransaction.commit();
     }

@@ -20,6 +20,11 @@ public class Order implements Serializable {
     @Column(length = 45)
     private Date timestamp;
 
+    public Order(String item, int quantity) {
+        this.item = item;
+        this.quantity = quantity;
+    }
+
     public String getItem() {
         return item;
     }

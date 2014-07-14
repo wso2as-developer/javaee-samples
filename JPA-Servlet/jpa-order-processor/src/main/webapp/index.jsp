@@ -4,6 +4,9 @@
     <title>JPA-Servlet example</title>
 </head>
 <body>
+<div>
+    <b style="color: red;">${info}</b>
+</div>
 <h1>
     Order Placement System
 </h1>
