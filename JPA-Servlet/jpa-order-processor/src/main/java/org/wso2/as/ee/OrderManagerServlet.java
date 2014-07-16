@@ -1,5 +1,8 @@
 package org.wso2.as.ee;
 
+import org.apache.openjpa.persistence.PersistenceException;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,13 +13,8 @@ import java.io.IOException;
 @WebServlet(name = "OrderManagerServlet", urlPatterns = "/order")
 public class OrderManagerServlet extends HttpServlet {
 
+    @EJB
     private OrderManager orderManager;
-    private Object conn;
-
-    public void init() throws ServletException {
-        conn = getServletContext().getAttribute("connection");
-        orderManager = new OrderManager();
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -35,7 +33,11 @@ public class OrderManagerServlet extends HttpServlet {
 
         } else if (request.getParameter("viewOrder") != null) {
 
-            request.setAttribute("orders", orderManager.getOrders());
+            try {
+                request.setAttribute("orders", orderManager.getOrders());
+            } catch (PersistenceException exception) {
+                request.setAttribute("info", "Please place a order first");
+            }
             request.getRequestDispatcher("/WEB-INF/orderList.jsp").forward(request, response);
 
         } else if (request.getParameter("removeOrder") != null) {
@@ -59,9 +61,7 @@ public class OrderManagerServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getParameter("anotherOrder") != null) {
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
-        }
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     private void displayHome(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -72,9 +72,5 @@ public class OrderManagerServlet extends HttpServlet {
     private void displayOrderList(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setAttribute("orders", orderManager.getOrders());
         request.getRequestDispatcher("/WEB-INF/orderList.jsp").forward(request, response);
-    }
-
-    public void destroy() {
-        orderManager.closeConnections();
     }
 }

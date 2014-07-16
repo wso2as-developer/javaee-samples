@@ -1,11 +1,10 @@
 package org.wso2.as.ee;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "ORDERS")
-public class Order implements Serializable {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +18,9 @@ public class Order implements Serializable {
     @Version
     @Column(length = 45)
     private Date timestamp;
+
+    public Order() {
+    }
 
     public Order(String item, int quantity) {
         this.item = item;
