@@ -6,6 +6,7 @@
         <class>org.wso2.as.ee.Student</class>
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"></property>
         </properties>
     </persistence-unit>
 </persistence>

@@ -5,7 +5,7 @@
             auth="Container"
             type="javax.sql.DataSource"
             driverClassName="org.h2.Driver"
-            url="jdbc:h2:mem:restDb;INIT=create schema IF NOT EXISTS STUDENT"
+            url="jdbc:h2:mem:restDb"
             username="admin"
             password="admin"
             JtaManaged="true" />
