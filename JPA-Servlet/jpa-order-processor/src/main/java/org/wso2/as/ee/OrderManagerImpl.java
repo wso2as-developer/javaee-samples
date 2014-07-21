@@ -1,6 +1,7 @@
 package org.wso2.as.ee;
 
 import javax.ejb.Stateful;
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
