@@ -20,6 +20,7 @@
         <module>JPA-JaxRS/studentRegister</module>
         <module>JPA-JaxWS/jpa-contacts-database</module>
         <module>JSF-EJB/greeting</module>
+        <module>JSF-BVAL/jsf-marks-calculator</module>
     </modules>
     <dependencies>
         <dependency>
