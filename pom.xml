@@ -18,6 +18,7 @@
         <module>CDI-Servlet/cdi-scope</module>
         <module>JPA-Servlet/jpa-order-processor</module>
         <module>JPA-JaxRS/studentRegister</module>
+        <module>JPA-JaxWS/jpa-contacts-database</module>
         <module>JSF-EJB/greeting</module>
     </modules>
     <dependencies>
