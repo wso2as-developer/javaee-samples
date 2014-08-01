@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.wso2.as.ee.sample</groupId>
-    <artifactId>jsf-money-transfer</artifactId>
+    <artifactId>jta-money-transfer</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 

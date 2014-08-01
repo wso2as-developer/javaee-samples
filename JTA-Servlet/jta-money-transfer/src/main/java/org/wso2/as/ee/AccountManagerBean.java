@@ -13,7 +13,6 @@ public class AccountManagerBean {
     private EntityManager entityManager;
 
     public AccountManagerBean() {
-        System.out.println("Account manager constructor called!");
         createEntityManager = Persistence.createEntityManagerFactory("unit-bank");
         entityManager = createEntityManager.createEntityManager();
     }

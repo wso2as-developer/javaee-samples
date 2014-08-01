@@ -21,6 +21,7 @@
         <module>JPA-JaxWS/jpa-contacts-database</module>
         <module>JSF-EJB/greeting</module>
         <module>JSF-BVAL/jsf-marks-calculator</module>
+        <module>JSF-JTA/jsf-money-transfer</module>
     </modules>
     <dependencies>
         <dependency>
