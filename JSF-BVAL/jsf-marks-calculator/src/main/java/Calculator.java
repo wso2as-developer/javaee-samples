@@ -1,11 +1,11 @@
-import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Named("Calculator")
-@Stateless
+@RequestScoped
 public class Calculator {
 
     @NotNull
@@ -55,7 +55,7 @@ public class Calculator {
 
     public String calculate() {
         total = mark1 + mark2;
-        average = (float)total / 2;
+        average = (float) total / 2;
         return "success";
     }
 
