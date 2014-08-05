@@ -1,11 +1,9 @@
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-@Named("Calculator")
-@RequestScoped
+@ManagedBean(name = "Calculator")
 public class Calculator {
 
     @NotNull
