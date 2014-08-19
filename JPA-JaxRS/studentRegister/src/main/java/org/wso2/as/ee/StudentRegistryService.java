@@ -1,5 +1,6 @@
 package org.wso2.as.ee;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;

@@ -1,5 +1,6 @@
 package org.wso2.as.ee;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -44,6 +45,12 @@ public class StudentManagerImpl implements StudentManager {
     public List<Student> getAllStudents() {
         Query query = entityManager.createQuery("SELECT student FROM Student student");
         return query.getResultList();
+    }
+
+    @PostConstruct
+    private void addDefaultStudent() {
+        Student defaultStudent = new Student(100, "John");
+        addStudent(defaultStudent);
     }
 
 }
