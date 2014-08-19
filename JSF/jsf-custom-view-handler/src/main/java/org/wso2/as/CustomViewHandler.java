@@ -1,10 +1,15 @@
+package org.wso2.as;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.faces.application.ViewHandler;
 import javax.faces.application.ViewHandlerWrapper;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 
@@ -47,10 +52,30 @@ public class CustomViewHandler extends ViewHandlerWrapper {
   }
 
   private String addContextPath(FacesContext context, String url) {
-    String newUrl;
-    newUrl = url.substring(url.indexOf('/', 1) +1 , url.length());
-
-    log.debug("The addContextPath: Changed URL = " + newUrl);
-    return newUrl;
+      final HttpServletRequest request = ((HttpServletRequest) context.getExternalContext().getRequest());
+      String result = url;
+      if (url.startsWith("/")) {
+          int subpath = StringUtils.countMatches(getPath(request), "/") - 1;
+          String pathPrefix = "";
+          if (subpath > 0) {
+              while (subpath > 0) {
+                  pathPrefix += "/..";
+                  subpath--;
+              }
+              pathPrefix = StringUtils.removeStart(pathPrefix, "/");
+          }
+          result = pathPrefix + result;
+      }
+      return result;
   }
+
+    private String getPath(final HttpServletRequest request) {
+        try {
+            // TODO handle more than two '/'
+            return StringUtils.replace(new URI(request.getRequestURI()).getPath(), "//", "/");
+        } catch (final URISyntaxException e) {
+            // XXX URISyntaxException ignored
+            return StringUtils.EMPTY;
+        }
+    }
 }
