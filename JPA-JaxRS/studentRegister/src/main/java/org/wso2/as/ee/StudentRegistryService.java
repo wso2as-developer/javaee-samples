@@ -16,7 +16,7 @@ public class StudentRegistryService {
 
     @POST
     @Path("add")
-    @Consumes("application/json")
+    @Consumes({"application/json", "application/xml", "text/json", "text/xml"})
     public Response addStudent(StudentDTO stu) {
         Student student = new Student(stu.getIndex(), stu.getName());
         Student result = studentManager.addStudent(student);
@@ -28,7 +28,7 @@ public class StudentRegistryService {
 
     @GET
     @Path("getall")
-    @Produces("application/json")
+    @Produces({"application/json", "application/xml", "text/json", "text/xml"})
     public Response getAllStudents() {
         List<Student> students = studentManager.getAllStudents();
         List<StudentDTO> studentsResponse = new ArrayList<StudentDTO>();
@@ -43,7 +43,7 @@ public class StudentRegistryService {
 
     @GET
     @Path("get/{index}")
-    @Produces("application/json")
+    @Produces({"application/json", "application/xml", "text/json", "text/xml"})
     public Response getStudent(@PathParam("index") int index) {
         Student student = studentManager.getStudent(index);
         if (student != null) {
