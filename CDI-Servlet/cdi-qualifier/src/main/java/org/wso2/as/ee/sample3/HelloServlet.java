@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "HelloServlet", urlPatterns = "/sample3")
+@WebServlet(name = "HelloServlet", urlPatterns = "/")
 public class HelloServlet extends javax.servlet.http.HttpServlet {
 
     @Inject
