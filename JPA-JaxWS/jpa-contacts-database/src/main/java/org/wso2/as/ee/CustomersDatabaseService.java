@@ -13,7 +13,7 @@ public class CustomersDatabaseService {
     ContactManager contactManager;
 
     @WebMethod
-    public ContactsDTO getContacts() {
+    public ContactsDTO getContacts() throws Exception {
 
         List<ContactDTO> contactsList = new ArrayList<ContactDTO>();
 
@@ -26,7 +26,7 @@ public class CustomersDatabaseService {
     }
 
     @WebMethod
-    public String addContact(ContactDTO contact) {
+    public String addContact(ContactDTO contact) throws Exception {
         Contact contactEntity = new Contact(contact.getName(), contact.getContactNumber(), contact.getAge(), contact.getEmail(), contact.getBirthday());
         return contactManager.addContact(contactEntity);
     }

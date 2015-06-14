@@ -17,12 +17,12 @@ public class ContactManagerImpl implements ContactManager {
     EntityManager entityManager;
 
     @Override
-    public String addContact(Contact contact) {
+    public String addContact(Contact contact) throws Exception {
         try {
             entityManager.persist(contact);
             return "Contact was saved successfully.";
-        } catch (ConstraintViolationException exception) {
-            return "Field constrains violated, please recheck and try again.";
+        } catch (ConstraintViolationException e) {
+            throw new Exception("Field constraints violated, please recheck and try again." + e.getCause().getMessage(), e);
         }
     }
 
