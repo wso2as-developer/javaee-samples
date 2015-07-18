@@ -32,7 +32,9 @@ public class CustomViewHandler extends ViewHandlerWrapper {
   @Override
   public String getActionURL(FacesContext context, String viewId) {
     String url =  super.getActionURL(context, viewId);
-    log.debug("The getActionURL: " + url);
+    if (log.isDebugEnabled()) {
+        log.debug("The getActionURL: " + url);
+    }
     return addContextPath(context, url);
   }
 
@@ -40,14 +42,18 @@ public class CustomViewHandler extends ViewHandlerWrapper {
   public String getRedirectURL(FacesContext context, String viewId, Map<String,
           List<String>> parameters, boolean includeViewParams) {
     String url =  super.getRedirectURL(context, viewId, parameters, includeViewParams);
-    log.debug("The getRedirectURL: " + url);
+    if (log.isDebugEnabled()) {
+        log.debug("The getRedirectURL: " + url);
+    }
     return url;
   }
 
   @Override
   public String getResourceURL(FacesContext context, String path) {
     String url = super.getResourceURL(context, path);
-    log.debug("The getResourceURL: = " + url);
+    if (log.isDebugEnabled()) {
+        log.debug("The getResourceURL: " + url);
+    }
     return addContextPath(context, url);
   }
 
@@ -65,6 +71,9 @@ public class CustomViewHandler extends ViewHandlerWrapper {
               pathPrefix = StringUtils.removeStart(pathPrefix, "/");
           }
           result = pathPrefix + result;
+      }
+      if (log.isDebugEnabled()) {
+          log.debug("Modified URL: " + result);
       }
       return result;
   }
